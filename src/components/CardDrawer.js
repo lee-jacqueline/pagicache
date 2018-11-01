@@ -3,22 +3,20 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import Button from '@material-ui/core/Button';
-import List from '@material-ui/core/List';
-import Divider from '@material-ui/core/Divider';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
+import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
 
-const styles = {
+const styles = theme => ({
   list: {
     width: 550,
   },
   fullList: {
     width: 'auto',
   },
-};
+  control: {
+    padding: theme.spacing.unit * 2,
+  },
+});
 
 class TemporaryDrawer extends React.Component {
   state = {
@@ -33,19 +31,53 @@ class TemporaryDrawer extends React.Component {
 
   render() {
     const { classes, dataObject } = this.props;
+    const coreData = dataObject.coreData;
+    const serviceData = dataObject.serviceData;
+
+    var fieldsCore = {};
+    fieldsCore['Assigned to'] = coreData.assignee;
+    fieldsCore['Short Description'] = coreData.shortDescription;
+    fieldsCore['Application'] = coreData.application;
+
+    var fieldsService = {};
+    fieldsService['made_sla'] = serviceData.made_sla;
+    fieldsService['upon_reject'] = serviceData.upon_reject;
+    fieldsService['opened_by'] = serviceData.opened_by;
+    fieldsService['priority'] = serviceData.priority;
+    fieldsService['activity_due'] = serviceData.activity_due;
+    fieldsService['approval'] = serviceData.approval;
 
     const sideList = (
       <div className={classes.list}>
-        <List>
-          {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
-        </List>
-        <Divider />
-        {dataObject.coreData.id}
+        <Grid container className={classes.control} spacing={16}>
+          <Grid item xs={12}>
+            <Typography variant="h5" component="h2">
+              {coreData.number}
+            </Typography>
+          </Grid>
+          {Object.keys(fieldsCore).map((key, index) => (
+              <Grid container item xs={12}>
+                <Grid item xs={4}>
+                  {key}
+                </Grid>
+                <Grid item xs={8}>
+                  {fieldsCore[key]}
+                </Grid>
+              </Grid>
+            ))
+          }
+          {Object.keys(fieldsService).map((key, index) => (
+              <Grid container item xs={12}>
+                <Grid item xs={4}>
+                  {key}
+                </Grid>
+                <Grid item xs={8}>
+                  {fieldsService[key]}
+                </Grid>
+              </Grid>
+            ))
+          }
+        </Grid>
       </div>
     );
 

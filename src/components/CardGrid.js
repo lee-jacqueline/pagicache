@@ -33,6 +33,30 @@ function FormRow(props) {
       <Grid item xs={3}>
         <Card dataObject={data[0]}/>
       </Grid>
+      <Grid item xs={3}>
+        <Card dataObject={data[0]}/>
+      </Grid>
+      <Grid item xs={3}>
+        <Card dataObject={data[0]}/>
+      </Grid>
+      <Grid item xs={3}>
+        <Card dataObject={data[0]}/>
+      </Grid>
+      <Grid item xs={3}>
+        <Card dataObject={data[0]}/>
+      </Grid>
+      <Grid item xs={3}>
+        <Card dataObject={data[0]}/>
+      </Grid>
+      <Grid item xs={3}>
+        <Card dataObject={data[0]}/>
+      </Grid>
+      <Grid item xs={3}>
+        <Card dataObject={data[0]}/>
+      </Grid>
+      <Grid item xs={3}>
+        <Card dataObject={data[0]}/>
+      </Grid>
     </React.Fragment>
   );
 }
@@ -43,12 +67,6 @@ function NestedGrid(props) {
   return (
     <div className={classes.root}>
       <Grid container spacing={8}>
-        <Grid container item xs={12} spacing={24}>
-          <FormRow data={data}/>
-        </Grid>
-        <Grid container item xs={12} spacing={24}>
-          <FormRow data={data}/>
-        </Grid>
         <Grid container item xs={12} spacing={24}>
           <FormRow data={data}/>
         </Grid>
