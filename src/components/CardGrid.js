@@ -22,7 +22,7 @@ function FormRow(props) {
   return (
     <React.Fragment>
       <Grid item xs={3}>
-        {data[1]}
+        <Card dataObject={data[0]}/>
       </Grid>
       <Grid item xs={3}>
         <Card dataObject={data[0]}/>

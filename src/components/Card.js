@@ -28,27 +28,24 @@ const styles = {
 function SimpleCard(props) {
   const { classes, dataObject } = props;
   const bull = <span className={classes.bullet}>•</span>;
+  const coreData = dataObject.coreData;
+  console.log(dataObject.coreData);
 
   return (
     <Card className={classes.card}>
       <CardContent>
         <Typography className={classes.title} color="textSecondary" gutterBottom>
-          Title
+          {coreData.state} {bull} {coreData.type}
         </Typography>
         <Typography variant="h5" component="h2">
-          be
-          {bull}
-          nev
-          {bull}o{bull}
-          lent
+          {coreData.number}
         </Typography>
         <Typography className={classes.pos} color="textSecondary">
-          adjective
+          Application: {coreData.application}<br/>
+          Assignee: {coreData.assignee}
         </Typography>
         <Typography component="p">
-          well meaning and kindly.
-          <br />
-          {'"a benevolent smile"'}
+          {coreData.shortDescription}
         </Typography>
       </CardContent>
       <CardActions>
@@ -60,6 +57,7 @@ function SimpleCard(props) {
 
 SimpleCard.propTypes = {
   classes: PropTypes.object.isRequired,
+  dataObject: PropTypes.object.isRequired,
 };
 
 export default withStyles(styles)(SimpleCard);

@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import updateData from './updateData.js';
+import updateData from './UpdateData.js';
 
 export default combineReducers({
   updateData

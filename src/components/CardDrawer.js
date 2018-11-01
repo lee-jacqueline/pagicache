@@ -45,7 +45,7 @@ class TemporaryDrawer extends React.Component {
           ))}
         </List>
         <Divider />
-        {dataObject}
+        {dataObject.coreData.id}
       </div>
     );
 
@@ -69,6 +69,7 @@ class TemporaryDrawer extends React.Component {
 
 TemporaryDrawer.propTypes = {
   classes: PropTypes.object.isRequired,
+  dataObject: PropTypes.object.isRequired,
 };
 
 export default withStyles(styles)(TemporaryDrawer);
