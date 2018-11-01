@@ -7,6 +7,8 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
+import CardDrawer from './CardDrawer.js';
+
 const styles = {
   card: {
     minWidth: 275,
@@ -51,7 +53,7 @@ function SimpleCard(props) {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">Learn More</Button>
+        <CardDrawer />
       </CardActions>
     </Card>
   );

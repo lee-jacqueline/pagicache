@@ -25,9 +25,9 @@ class TemporaryDrawer extends React.Component {
     right: false,
   };
 
-  toggleDrawer = (side, open) => () => {
+  toggleDrawer = (open) => () => {
     this.setState({
-      [side]: open,
+      right: open,
     });
   };
 
@@ -58,13 +58,13 @@ class TemporaryDrawer extends React.Component {
 
     return (
       <div>
-        <Button onClick={this.toggleDrawer('right', true)}>Open Right</Button>
-        <Drawer anchor="right" open={this.state.right} onClose={this.toggleDrawer('right', false)}>
+        <Button size="small" onClick={this.toggleDrawer(true)}>Learn More</Button>
+        <Drawer anchor="right" open={this.state.right} onClose={this.toggleDrawer(false)}>
           <div
             tabIndex={0}
             role="button"
-            onClick={this.toggleDrawer('right', false)}
-            onKeyDown={this.toggleDrawer('right', false)}
+            onClick={this.toggleDrawer(false)}
+            onKeyDown={this.toggleDrawer(false)}
           >
             {sideList}
           </div>

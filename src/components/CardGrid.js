@@ -5,7 +5,6 @@ import Grid from '@material-ui/core/Grid';
 
 import Card from './Card.js';
 import Pagination from './Pagination.js';
-import CardDrawer from './CardDrawer.js';
 
 const styles = theme => ({
   root: {
@@ -18,8 +17,6 @@ const styles = theme => ({
 });
 
 function FormRow(props) {
-  const { classes } = props;
-
   return (
     <React.Fragment>
       <Grid item xs={3}>
@@ -60,7 +57,6 @@ function NestedGrid(props) {
         <Grid container item xs={12} spacing={24}>
           <Grid item xs={12} className={classes.pagination}>
             <Pagination />
-            <CardDrawer />
           </Grid>
         </Grid>
       </Grid>
