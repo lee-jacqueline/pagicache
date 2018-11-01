@@ -17,42 +17,40 @@ const styles = theme => ({
 });
 
 function FormRow(props) {
+  const { data } = props;
+
   return (
     <React.Fragment>
       <Grid item xs={3}>
-        <Card />
+        {data[1]}
       </Grid>
       <Grid item xs={3}>
-        <Card />
+        <Card dataObject={data[0]}/>
       </Grid>
       <Grid item xs={3}>
-        <Card />
+        <Card dataObject={data[0]}/>
       </Grid>
       <Grid item xs={3}>
-        <Card />
+        <Card dataObject={data[0]}/>
       </Grid>
     </React.Fragment>
   );
 }
 
-FormRow.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
-
 function NestedGrid(props) {
-  const { classes } = props;
+  const { classes, data } = props;
 
   return (
     <div className={classes.root}>
       <Grid container spacing={8}>
         <Grid container item xs={12} spacing={24}>
-          <FormRow classes={classes} />
+          <FormRow data={data}/>
         </Grid>
         <Grid container item xs={12} spacing={24}>
-          <FormRow classes={classes} />
+          <FormRow data={data}/>
         </Grid>
         <Grid container item xs={12} spacing={24}>
-          <FormRow classes={classes} />
+          <FormRow data={data}/>
         </Grid>
         <Grid container item xs={12} spacing={24}>
           <Grid item xs={12} className={classes.pagination}>
@@ -64,8 +62,12 @@ function NestedGrid(props) {
   );
 }
 
+FormRow.propTypes = {
+  data: PropTypes.array.isRequired,
+};
 NestedGrid.propTypes = {
   classes: PropTypes.object.isRequired,
+  data: PropTypes.array.isRequired,
 };
 
 export default withStyles(styles)(NestedGrid);

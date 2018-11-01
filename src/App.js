@@ -1,17 +1,27 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import './App.css';
 import CardGrid from './components/CardGrid.js';
+import { connect } from 'react-redux';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <CardGrid />
-        </header>
-      </div>
-    );
-  }
+const App = ({ data }) => {
+  return (
+    <div className="App">
+      <header className="App-header">
+        <CardGrid data={data}/>
+      </header>
+    </div>
+  );
 }
 
-export default App;
+function mapStateToProps(state) {
+  return {
+    data: state.updateData.data,
+  };
+}
+
+App.propTypes = {
+  data: PropTypes.array.isRequired,
+};
+
+export default connect(mapStateToProps, null)(App);
