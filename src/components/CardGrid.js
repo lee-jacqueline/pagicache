@@ -43,7 +43,7 @@ function NestedGrid(props) {
             <Pagination totalCount={totalCount}
               currentPage={currentPage}
               pageup={pageup}
-              pagedown={pagedown} />
+              pagedown={pagedown}/>
           </Grid>
         </Grid>
       </Grid>

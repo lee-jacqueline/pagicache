@@ -12,15 +12,37 @@ const styles = theme => ({
   },
 });
 
-function TextButtons(props) {
-  const { classes, totalCount, currentPage, pageup, pagedown } = props;
-  return (
-    <div>
-      <Button className={classes.button} onClick={pagedown}>Back</Button>
-      <span className={classes.text}>Page {currentPage} of {totalCount}</span>
-      <Button className={classes.button} onClick={pageup}>Next</Button>
-    </div>
-  );
+class TextButtons extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.disabled = this.disabled.bind(this);
+    this.state = {
+      disabledBack: false,
+      disabledNext: false,
+    };
+  }
+  // const { classes, data, totalCount, currentPage, pageup, pagedown } = props;
+
+  disabled = () => {
+    if (this.props.currentPage === 0) {
+      this.setState({ disabledBack: true, disabledNext: false });
+    } else if (this.props.currentPage === this.props.totalCount-1) {
+      this.setState({ disabledBack: false, disabledNext: true });
+    } else {
+      this.setState({ disabledBack: false, disabledNext: false });
+    }
+  }
+
+  render() {
+    return (
+      <div>
+        <Button className={this.props.classes.button} disabled={this.state.disabledBack} onClick={() => {this.props.pagedown(); this.disabled()}}>Back</Button>
+        <span className={this.props.classes.text}>Page {this.props.currentPage} of {this.props.totalCount}</span>
+        <Button className={this.props.classes.button} disabled={this.state.disabledNext} onClick={() => {this.props.pageup(); this.disabled()}}>Next</Button>
+      </div>
+    );
+  }
 }
 
 TextButtons.propTypes = {
