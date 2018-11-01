@@ -13,18 +13,20 @@ const styles = theme => ({
 });
 
 function TextButtons(props) {
-  const { classes } = props;
+  const { classes, totalCount, currentPage, pageup, pagedown } = props;
   return (
     <div>
-      <Button className={classes.button}>Back</Button>
-      <span className={classes.text}>Page 1 of 414</span>
-      <Button className={classes.button}>Next</Button>
+      <Button className={classes.button} onClick={pagedown}>Back</Button>
+      <span className={classes.text}>Page {currentPage} of {totalCount}</span>
+      <Button className={classes.button} onClick={pageup}>Next</Button>
     </div>
   );
 }
 
 TextButtons.propTypes = {
   classes: PropTypes.object.isRequired,
+  totalCount: PropTypes.number.isRequired,
+  currentPage: PropTypes.number.isRequired,
 };
 
 export default withStyles(styles)(TextButtons);

@@ -12,11 +12,6 @@ const styles = {
   card: {
     minWidth: 275,
   },
-  bullet: {
-    display: 'inline-block',
-    margin: '0 2px',
-    transform: 'scale(0.8)',
-  },
   title: {
     fontSize: 14,
   },
@@ -27,15 +22,13 @@ const styles = {
 
 function SimpleCard(props) {
   const { classes, dataObject } = props;
-  const bull = <span className={classes.bullet}>•</span>;
   const coreData = dataObject.coreData;
-  console.log(dataObject.coreData);
 
   return (
     <Card className={classes.card}>
       <CardContent>
         <Typography className={classes.title} color="textSecondary" gutterBottom>
-          {coreData.state} {bull} {coreData.type}
+          {coreData.state}
         </Typography>
         <Typography variant="h5" component="h2">
           {coreData.number}

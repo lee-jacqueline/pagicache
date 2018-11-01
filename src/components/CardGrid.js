@@ -18,51 +18,19 @@ const styles = theme => ({
 
 function FormRow(props) {
   const { data } = props;
-
   return (
     <React.Fragment>
-      <Grid item xs={3}>
-        <Card dataObject={data[0]}/>
-      </Grid>
-      <Grid item xs={3}>
-        <Card dataObject={data[0]}/>
-      </Grid>
-      <Grid item xs={3}>
-        <Card dataObject={data[0]}/>
-      </Grid>
-      <Grid item xs={3}>
-        <Card dataObject={data[0]}/>
-      </Grid>
-      <Grid item xs={3}>
-        <Card dataObject={data[0]}/>
-      </Grid>
-      <Grid item xs={3}>
-        <Card dataObject={data[0]}/>
-      </Grid>
-      <Grid item xs={3}>
-        <Card dataObject={data[0]}/>
-      </Grid>
-      <Grid item xs={3}>
-        <Card dataObject={data[0]}/>
-      </Grid>
-      <Grid item xs={3}>
-        <Card dataObject={data[0]}/>
-      </Grid>
-      <Grid item xs={3}>
-        <Card dataObject={data[0]}/>
-      </Grid>
-      <Grid item xs={3}>
-        <Card dataObject={data[0]}/>
-      </Grid>
-      <Grid item xs={3}>
-        <Card dataObject={data[0]}/>
-      </Grid>
+      {data.map((object, index) => (
+        <Grid item xs={3} key={index}>
+          <Card dataObject={object}/>
+        </Grid>
+      ))}
     </React.Fragment>
   );
 }
 
 function NestedGrid(props) {
-  const { classes, data } = props;
+  const { classes, data, totalCount, currentPage, pageup, pagedown } = props;
 
   return (
     <div className={classes.root}>
@@ -72,7 +40,10 @@ function NestedGrid(props) {
         </Grid>
         <Grid container item xs={12} spacing={24}>
           <Grid item xs={12} className={classes.pagination}>
-            <Pagination />
+            <Pagination totalCount={totalCount}
+              currentPage={currentPage}
+              pageup={pageup}
+              pagedown={pagedown} />
           </Grid>
         </Grid>
       </Grid>
@@ -86,6 +57,8 @@ FormRow.propTypes = {
 NestedGrid.propTypes = {
   classes: PropTypes.object.isRequired,
   data: PropTypes.array.isRequired,
+  totalCount: PropTypes.number.isRequired,
+  currentPage: PropTypes.number.isRequired,
 };
 
 export default withStyles(styles)(NestedGrid);

@@ -56,7 +56,7 @@ class TemporaryDrawer extends React.Component {
             </Typography>
           </Grid>
           {Object.keys(fieldsCore).map((key, index) => (
-              <Grid container item xs={12}>
+              <Grid container item xs={12} key={key}>
                 <Grid item xs={4}>
                   {key}
                 </Grid>
@@ -67,7 +67,7 @@ class TemporaryDrawer extends React.Component {
             ))
           }
           {Object.keys(fieldsService).map((key, index) => (
-              <Grid container item xs={12}>
+              <Grid container item xs={12} key={key}>
                 <Grid item xs={4}>
                   {key}
                 </Grid>
