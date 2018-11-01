@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-import CardDrawer from './components/CardDrawer.js';
 import CardGrid from './components/CardGrid.js';
-import Pagination from './components/Pagination.js';
+import LoadingWheel from './components/LoadingWheel.js';
 
 class App extends Component {
   render() {
@@ -10,6 +9,7 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <CardGrid />
+          <LoadingWheel />
         </header>
       </div>
     );
