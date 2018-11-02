@@ -20,12 +20,12 @@ class App extends React.Component {
   }
 
   nextPage() {
-    this.props.updateCurrent(this.props.currentPage+1);
     this.props.fetchData(this.props.currentPage);
+    this.props.updateCurrent(this.props.currentPage+1);
   }
   prevPage() {
-    this.props.updateCurrent(this.props.currentPage-1);
     this.props.fetchData(this.props.currentPage);
+    this.props.updateCurrent(this.props.currentPage-1);
   }
 
   render() {
@@ -36,7 +36,8 @@ class App extends React.Component {
             totalCount={this.props.totalCount}
             currentPage={this.props.currentPage}
             pageup={this.nextPage}
-            pagedown={this.prevPage}/>
+            pagedown={this.prevPage}
+            loading={this.props.loading}/>
         </header>
       </div>
     );
@@ -46,6 +47,7 @@ class App extends React.Component {
 function mapStateToProps(state) {
   return {
     data: state.updateData.data,
+    loading: state.updateData.loading,
     totalCount: state.pages.totalCount,
     currentPage: state.pages.currentPage,
   };
@@ -57,6 +59,7 @@ function mapDispatchToProps(dispatch) {
 
 App.propTypes = {
   data: PropTypes.array.isRequired,
+  loading: PropTypes.bool.isRequired,
   totalCount: PropTypes.number.isRequired,
   currentPage: PropTypes.number.isRequired,
 };

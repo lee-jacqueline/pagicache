@@ -5,6 +5,7 @@ import Grid from '@material-ui/core/Grid';
 
 import Card from './Card.js';
 import Pagination from './Pagination.js';
+import LoadingWheel from './LoadingWheel.js';
 
 const styles = theme => ({
   root: {
@@ -30,7 +31,7 @@ function FormRow(props) {
 }
 
 function NestedGrid(props) {
-  const { classes, data, totalCount, currentPage, pageup, pagedown } = props;
+  const { classes, data, totalCount, currentPage, pageup, pagedown, loading } = props;
 
   return (
     <div className={classes.root}>
@@ -44,6 +45,7 @@ function NestedGrid(props) {
               currentPage={currentPage}
               pageup={pageup}
               pagedown={pagedown}/>
+            {loading ? <LoadingWheel /> : ''}
           </Grid>
         </Grid>
       </Grid>
@@ -57,6 +59,7 @@ FormRow.propTypes = {
 NestedGrid.propTypes = {
   classes: PropTypes.object.isRequired,
   data: PropTypes.array.isRequired,
+  loading: PropTypes.bool.isRequired,
   totalCount: PropTypes.number.isRequired,
   currentPage: PropTypes.number.isRequired,
 };

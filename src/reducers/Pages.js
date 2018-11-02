@@ -1,8 +1,8 @@
 import { PAGE_UPDATE, TOTAL_PAGES } from '../actions/Types.js';
 
 const INITIAL_STATE = {
-  totalCount: 0,
-  currentPage: 0,
+  totalCount: 1,
+  currentPage: 1,
 };
 
 export default function (state = INITIAL_STATE, action) {
