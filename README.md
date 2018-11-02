@@ -34,6 +34,11 @@ The plan for the caching algorithm was to store cached data into hash tables and
 - Axios
 - Material UI
 
+## Troubleshooting
+
+- If you see the loading wheel constantly turning and no results are being returned, please update the apiToken to a valid one. The apiToken can be discovered in ./actions/FetchData.js.
+  - apiToken should be homed in an env variable, however that was not implemented in this project.
+
 ### Total Time taken to build app
 
 2.5 days (submitted incomplete)
