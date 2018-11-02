@@ -22,6 +22,7 @@ You will also see any lint errors in the console.
 - Caching is not yet implemented (gaps in knowledge)
 - Data fetching with Axios, fetches according to currentPage provided
 - Loading indication displays every time fetch request is submitted
+- Navigation through page somehow doesn't reflect the correct cards to that corresponding page due to axios promises returning later than the action itself. 
 
 ## Ideas
 
