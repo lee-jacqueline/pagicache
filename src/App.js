@@ -8,6 +8,11 @@ import CardGrid from './components/CardGrid.js';
 import { fetchData } from './actions/FetchData.js';
 import { updateCurrent } from './actions/PageNav.js';
 
+/*
+  Main application container component to display related information.
+  - Passes params to CardGrid component.
+  - Updates current pages for pagination.
+*/
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -15,17 +20,30 @@ class App extends React.Component {
     this.prevPage = this.prevPage.bind(this);
   }
 
+  /*
+    Fetches data upon application startup.
+  */
   componentDidMount() {
     this.props.fetchData(this.props.currentPage);
   }
 
+  /*
+    Increasing page number for pagination.
+  */
   nextPage() {
     this.props.fetchData(this.props.currentPage);
-    this.props.updateCurrent(this.props.currentPage+1);
+    if (this.props.currentPage > 0 && this.props.currentPage < this.props.totalCount-1) {
+      this.props.updateCurrent(this.props.currentPage+1);
+    }
   }
+  /*
+    Decreasing page number for pagination.
+  */
   prevPage() {
     this.props.fetchData(this.props.currentPage);
-    this.props.updateCurrent(this.props.currentPage-1);
+    if (this.props.currentPage > 1 && this.props.currentPage < this.props.totalCount) {
+      this.props.updateCurrent(this.props.currentPage-1);
+    }
   }
 
   render() {

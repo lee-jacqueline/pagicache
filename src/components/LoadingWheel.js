@@ -9,6 +9,10 @@ const styles = theme => ({
   },
 });
 
+/*
+  Loading wheel component that indicates if the data is still getting fetched.
+  @param {object} classes
+*/
 function CircularIndeterminate(props) {
   const { classes } = props;
   return (

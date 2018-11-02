@@ -17,6 +17,10 @@ const styles = theme => ({
   },
 });
 
+/*
+  Function to iterate through dataObject array and map out onto the grid.
+  @param {array} data
+*/
 function FormRow(props) {
   const { data } = props;
   return (
@@ -30,6 +34,16 @@ function FormRow(props) {
   );
 }
 
+/*
+  Outer grid of FormRow
+  @param {object} classes
+  @param {array} data
+  @param {number} totalCount
+  @param {number} currentPage
+  @param {function} pageup
+  @param {function} pagedown
+  @param {bool} loading
+*/
 function NestedGrid(props) {
   const { classes, data, totalCount, currentPage, pageup, pagedown, loading } = props;
 

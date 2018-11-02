@@ -20,6 +20,11 @@ const styles = {
   },
 };
 
+/*
+  Card component to display coreData information.
+  @param {object} dataObject
+  @param {object} classes
+*/
 function SimpleCard(props) {
   const { classes, dataObject } = props;
   const coreData = dataObject.coreData;

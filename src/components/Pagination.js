@@ -12,6 +12,14 @@ const styles = theme => ({
   },
 });
 
+/*
+  Pagination to navigate between the different pages.
+  @param {object} classes
+  @param {number} totalCount
+  @param {number} currentPage
+  @param {function} pageup
+  @param {function} pagedown
+*/
 class TextButtons extends React.Component {
 
   constructor(props) {
@@ -22,10 +30,12 @@ class TextButtons extends React.Component {
       disabledNext: false,
     };
   }
-  // const { classes, data, totalCount, currentPage, pageup, pagedown } = props;
 
+  /*
+    Disables back/next button when currentPage is reaching the ends of the spectrum.
+  */
   disabled = () => {
-    if (this.props.currentPage === 0) {
+    if (this.props.currentPage === 1) {
       this.setState({ disabledBack: true, disabledNext: false });
     } else if (this.props.currentPage === this.props.totalCount-1) {
       this.setState({ disabledBack: false, disabledNext: true });

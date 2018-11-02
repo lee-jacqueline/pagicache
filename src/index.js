@@ -9,6 +9,9 @@ import App from './App';
 import rootReducer from './reducers';
 import * as serviceWorker from './serviceWorker';
 
+/*
+  Redux store creation.
+*/
 const store = createStore(
   rootReducer,
   applyMiddleware(thunk),

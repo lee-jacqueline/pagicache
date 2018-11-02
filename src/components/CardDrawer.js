@@ -18,6 +18,11 @@ const styles = theme => ({
   },
 });
 
+/*
+  Card drawer component to display serviceData information.
+  @param {object} dataObject
+  @param {object} classes
+*/
 class TemporaryDrawer extends React.Component {
   state = {
     right: false,
