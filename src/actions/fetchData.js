@@ -7,6 +7,7 @@ const apiToken = 'eyJhbGciOiJSUzUxMiIsInppcCI6IkRFRiJ9.eNqUlFFrwjAUhf9Lnvuwjk6cb
 /*
   FetchData action using axios to run a GET request to target API,
   and updating total page count, card data, and fetching progress boolean.
+  @param {number} currentPage
 */
 export function fetchData(currentPage) {
   return dispatch => {
